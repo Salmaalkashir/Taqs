@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,9 +11,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Taqs" customModuleProvider="target">
             <connections>
-                <outlet property="collectionn" destination="6FM-gf-z6j" id="iXc-51-BKR"/>
+                <outlet property="cityLabel" destination="sTF-ur-6qE" id="fAZ-fg-7ZD"/>
+                <outlet property="dailyForecastTableView" destination="oh9-Pc-GTF" id="ZgF-9n-S89"/>
+                <outlet property="dateLabel" destination="gO1-Uu-JYw" id="Yao-Rf-Ppb"/>
+                <outlet property="feelsLikeLabel" destination="db4-NQ-gzK" id="eKU-do-m10"/>
+                <outlet property="hourlyForecastCollectionView" destination="6FM-gf-z6j" id="ZtF-og-YSv"/>
                 <outlet property="img" destination="CiT-D9-LgJ" id="5Zs-Ca-g41"/>
                 <outlet property="tableee" destination="aKU-IM-rWq" id="G6P-C6-AdK"/>
+                <outlet property="tempDegreeLabel" destination="nqY-GR-vSR" id="6BZ-Wc-0dr"/>
+                <outlet property="tempDescriptionLabel" destination="kTz-Az-dep" id="viw-e1-d7i"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -85,7 +92,7 @@
                                 </stackView>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6FM-gf-z6j">
                                     <rect key="frame" x="16" y="330" width="361" height="170"/>
-                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" name="Background"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="170" id="CaP-fE-ZL2"/>
                                     </constraints>
@@ -96,8 +103,13 @@
                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </collectionViewFlowLayout>
                                 </collectionView>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oh9-Pc-GTF">
+                                    <rect key="frame" x="16" y="512" width="361" height="400"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" name="Background"/>
+                                </tableView>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" red="0.61960784310000006" green="0.70196078429999997" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="6FM-gf-z6j" firstAttribute="centerX" secondItem="Us3-FB-DDH" secondAttribute="centerX" id="37j-vV-Hc6"/>
                                 <constraint firstItem="zbh-n4-Gbb" firstAttribute="width" secondItem="Us3-FB-DDH" secondAttribute="width" multiplier="0.729432" id="87f-dW-Rg9"/>
@@ -141,6 +153,9 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="Background">
+            <color red="0.47200000286102295" green="0.59600001573562622" blue="0.77799999713897705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

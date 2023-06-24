@@ -8,42 +8,68 @@
 import UIKit
 
 class HomeViewController: UIViewController{
+    
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var tempDescriptionLabel: UILabel!
+    @IBOutlet weak var tempDegreeLabel: UILabel!
+    @IBOutlet weak var feelsLikeLabel: UILabel!
     @IBOutlet weak var img: UIImageView!
+    {
+        didSet
+        {
+            //img.image = UIImage(named: "Cloud_sun")
+        }
+    }
+    
+    @IBOutlet weak var dailyForecastTableView: UITableView!
+    {
+        didSet
+        {
+            dailyForecastTableView.dataSource = self
+            dailyForecastTableView.delegate = self
+            let nib = UINib(nibName: "DailyForecastTableViewCell", bundle: nil)
+            dailyForecastTableView.register(nib, forCellReuseIdentifier: "dailyForecastCell")
+            dailyForecastTableView.layer.masksToBounds = true
+            dailyForecastTableView.layer.cornerRadius = 25
+        }
+    }
     @IBOutlet weak var tableee: UITableView!
     {
         didSet
         {
             tableee.dataSource = self
             tableee.delegate = self
+            let nib = UINib(nibName: "TableViewCell", bundle: nil)
+            tableee.register(nib, forCellReuseIdentifier: "tablecell")
+            tableee.layer.masksToBounds = true
+            tableee.layer.cornerRadius = 25
         }
     }
-    @IBOutlet weak var collectionn: UICollectionView!
+    @IBOutlet weak var hourlyForecastCollectionView: UICollectionView!
     {
         didSet
         {
-            collectionn.dataSource = self
-            collectionn.delegate = self
+            hourlyForecastCollectionView.dataSource = self
+            hourlyForecastCollectionView.delegate = self
+            let nib1 = UINib(nibName: "CollectionViewCell", bundle: nil)
+            hourlyForecastCollectionView.register(nib1, forCellWithReuseIdentifier: "collectioncell")
+            hourlyForecastCollectionView.layer.masksToBounds = true
+            hourlyForecastCollectionView.layer.cornerRadius = 25
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let nib = UINib(nibName: "TableViewCell", bundle: nil)
-        tableee.register(nib, forCellReuseIdentifier: "tablecell")
-        
-        let nib1 = UINib(nibName: "CollectionViewCell", bundle: nil)
-        collectionn.register(nib1, forCellWithReuseIdentifier: "collectioncell")
-        
-        img.image = UIImage(named: "Cloud_sun")
-
-        
+        configureAppearance()
     }
-
 }
+
 extension HomeViewController : UITableViewDelegate
 {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
 }
 
 extension HomeViewController : UITableViewDataSource
@@ -53,11 +79,18 @@ extension HomeViewController : UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell  = tableView.dequeueReusableCell(withIdentifier: "tablecell") as! TableViewCell
-        return cell
+        if tableView == tableee
+        {
+            let cell  = tableView.dequeueReusableCell(withIdentifier: "tablecell") as! TableViewCell
+            return cell
+        }
+        
+        else
+        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "dailyForecastCell", for: indexPath) as! DailyForecastTableViewCell
+            return cell
+        }
     }
-    
-    
 }
 extension HomeViewController: UICollectionViewDelegate
 {
@@ -71,9 +104,26 @@ extension HomeViewController : UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectioncell", for: indexPath) as! CollectionViewCell
-        cell.imgcollection.image = UIImage(named: "Cloud_sun")
+        //cell.imgcollection.image = UIImage(named: "Cloud_sun")
         return cell
     }
-    
-    
+}
+
+extension HomeViewController : UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    {
+        return CGSize(width: self.view.frame.width * 0.36 , height: self.view.frame.height * 0.18)
+    }
+}
+
+// MARK: - Configurations
+
+private extension HomeViewController {
+    func configureAppearance() {
+        cityLabel.applyStyle(.header)
+        dateLabel.applyStyle(.subtitle)
+        tempDescriptionLabel.applyStyle(.title)
+        tempDegreeLabel.applyStyle(.header)
+        feelsLikeLabel.applyStyle(.subtitle)
+    }
 }

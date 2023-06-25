@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3879E6D62A44A2130040998D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3879E6D42A44A2130040998D /* TableViewCell.swift */; };
-		3879E6D72A44A2130040998D /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3879E6D52A44A2130040998D /* TableViewCell.xib */; };
-		3879E6DA2A44B56E0040998D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3879E6D82A44B56E0040998D /* CollectionViewCell.swift */; };
-		3879E6DB2A44B56E0040998D /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3879E6D92A44B56E0040998D /* CollectionViewCell.xib */; };
+		3879E6D62A44A2130040998D /* WeatherIndicatorsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3879E6D42A44A2130040998D /* WeatherIndicatorsTableViewCell.swift */; };
+		3879E6D72A44A2130040998D /* WeatherIndicatorsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3879E6D52A44A2130040998D /* WeatherIndicatorsTableViewCell.xib */; };
+		3879E6DA2A44B56E0040998D /* HourlyForecastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3879E6D82A44B56E0040998D /* HourlyForecastCollectionViewCell.swift */; };
+		3879E6DB2A44B56E0040998D /* HourlyForecastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3879E6D92A44B56E0040998D /* HourlyForecastCollectionViewCell.xib */; };
 		387E81E02A3E449E00BB4941 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E81DF2A3E449E00BB4941 /* UIButton.swift */; };
 		387E81E22A3E459F00BB4941 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E81E12A3E459F00BB4941 /* UILabel.swift */; };
 		387E81EB2A3E6F8700BB4941 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E81E92A3E6F8700BB4941 /* HomeViewController.swift */; };
@@ -26,10 +26,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3879E6D42A44A2130040998D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		3879E6D52A44A2130040998D /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
-		3879E6D82A44B56E0040998D /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		3879E6D92A44B56E0040998D /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		3879E6D42A44A2130040998D /* WeatherIndicatorsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIndicatorsTableViewCell.swift; sourceTree = "<group>"; };
+		3879E6D52A44A2130040998D /* WeatherIndicatorsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherIndicatorsTableViewCell.xib; sourceTree = "<group>"; };
+		3879E6D82A44B56E0040998D /* HourlyForecastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastCollectionViewCell.swift; sourceTree = "<group>"; };
+		3879E6D92A44B56E0040998D /* HourlyForecastCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HourlyForecastCollectionViewCell.xib; sourceTree = "<group>"; };
 		387E81DF2A3E449E00BB4941 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		387E81E12A3E459F00BB4941 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		387E81E92A3E6F8700BB4941 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -62,10 +62,10 @@
 			children = (
 				4FFDF0452A47637C00AF5EE3 /* DailyForecastTableViewCell.swift */,
 				4FFDF0462A47637C00AF5EE3 /* DailyForecastTableViewCell.xib */,
-				3879E6D42A44A2130040998D /* TableViewCell.swift */,
-				3879E6D52A44A2130040998D /* TableViewCell.xib */,
-				3879E6D82A44B56E0040998D /* CollectionViewCell.swift */,
-				3879E6D92A44B56E0040998D /* CollectionViewCell.xib */,
+				3879E6D42A44A2130040998D /* WeatherIndicatorsTableViewCell.swift */,
+				3879E6D52A44A2130040998D /* WeatherIndicatorsTableViewCell.xib */,
+				3879E6D82A44B56E0040998D /* HourlyForecastCollectionViewCell.swift */,
+				3879E6D92A44B56E0040998D /* HourlyForecastCollectionViewCell.xib */,
 			);
 			path = "Reusable Cells";
 			sourceTree = "<group>";
@@ -204,11 +204,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				38F344972A3A1FA500DDEF7A /* LaunchScreen.storyboard in Resources */,
-				3879E6D72A44A2130040998D /* TableViewCell.xib in Resources */,
+				3879E6D72A44A2130040998D /* WeatherIndicatorsTableViewCell.xib in Resources */,
 				38F344942A3A1FA500DDEF7A /* Assets.xcassets in Resources */,
 				387E81EC2A3E6F8700BB4941 /* HomeViewController.xib in Resources */,
 				4FFDF0482A47637C00AF5EE3 /* DailyForecastTableViewCell.xib in Resources */,
-				3879E6DB2A44B56E0040998D /* CollectionViewCell.xib in Resources */,
+				3879E6DB2A44B56E0040998D /* HourlyForecastCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,8 +225,8 @@
 				38F3448B2A3A1FA100DDEF7A /* AppDelegate.swift in Sources */,
 				388D53DC2A47BC170087618A /* Network Services .swift in Sources */,
 				38F3448D2A3A1FA100DDEF7A /* SceneDelegate.swift in Sources */,
-				3879E6DA2A44B56E0040998D /* CollectionViewCell.swift in Sources */,
-				3879E6D62A44A2130040998D /* TableViewCell.swift in Sources */,
+				3879E6DA2A44B56E0040998D /* HourlyForecastCollectionViewCell.swift in Sources */,
+				3879E6D62A44A2130040998D /* WeatherIndicatorsTableViewCell.swift in Sources */,
 				387E81E22A3E459F00BB4941 /* UILabel.swift in Sources */,
 				387E81E02A3E449E00BB4941 /* UIButton.swift in Sources */,
 			);

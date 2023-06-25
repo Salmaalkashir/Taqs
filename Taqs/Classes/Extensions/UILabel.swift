@@ -15,6 +15,7 @@ extension UILabel
         case header
         case title
         case subtitle
+        case fourth
         
         var labelTextColor: UIColor {
                 return .white
@@ -28,6 +29,8 @@ extension UILabel
                 return LabelFont.title
             case .subtitle:
                 return LabelFont.subtitle
+            case .fourth:
+                return LabelFont.fourth
             }
         }
     }
@@ -46,4 +49,5 @@ private enum LabelFont {
     static let headerLabel = UIFont.systemFont(ofSize: 50, weight: .bold)
     static let title = UIFont.systemFont(ofSize: 30, weight: .semibold)
     static let subtitle = UIFont.systemFont(ofSize: 18, weight: .regular)
+    static let fourth = UIFont.systemFont(ofSize: 20, weight: .medium)
 }

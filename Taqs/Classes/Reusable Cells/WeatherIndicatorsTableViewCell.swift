@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+class WeatherIndicatorsTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

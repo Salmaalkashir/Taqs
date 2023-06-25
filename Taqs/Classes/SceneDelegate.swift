@@ -19,12 +19,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             // viewController.view.backgroundColor = .systemTeal
 
              let window = UIWindow(windowScene: windowScene)
-             window.rootViewController = HomeViewController()
+             window.rootViewController = createTabBar()
              window.makeKeyAndVisible()
 
              self.window = window
     }
-
+    func createHomeNC() -> UINavigationController{
+        let homeVC = HomeViewController()
+        homeVC.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 0)
+        return UINavigationController(rootViewController: homeVC)
+    }
+    func createTabBar() -> UITabBarController{
+        let tabBar = UITabBarController()
+        UITabBar.appearance().tintColor = .cyan
+        UITabBar.appearance().backgroundColor = .red
+        tabBar.viewControllers = [createHomeNC()]
+        return tabBar
+    }
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.

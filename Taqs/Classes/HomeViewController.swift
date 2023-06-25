@@ -14,48 +14,39 @@ class HomeViewController: UIViewController{
     @IBOutlet weak var tempDescriptionLabel: UILabel!
     @IBOutlet weak var tempDegreeLabel: UILabel!
     @IBOutlet weak var feelsLikeLabel: UILabel!
-    @IBOutlet weak var img: UIImageView!
-    {
-        didSet
-        {
+    @IBOutlet weak var img: UIImageView!{
+        didSet{
             //img.image = UIImage(named: "Cloud_sun")
         }
     }
-    
-    @IBOutlet weak var dailyForecastTableView: UITableView!
-    {
-        didSet
-        {
+    @IBOutlet weak var dailyForecastTableView: UITableView!{
+        didSet{
             dailyForecastTableView.dataSource = self
             dailyForecastTableView.delegate = self
             let nib = UINib(nibName: "DailyForecastTableViewCell", bundle: nil)
             dailyForecastTableView.register(nib, forCellReuseIdentifier: "dailyForecastCell")
             dailyForecastTableView.layer.masksToBounds = true
-            dailyForecastTableView.layer.cornerRadius = 25
+            dailyForecastTableView.layer.cornerRadius = 20
         }
     }
-    @IBOutlet weak var tableee: UITableView!
-    {
-        didSet
-        {
+    @IBOutlet weak var tableee: UITableView!{
+        didSet{
             tableee.dataSource = self
             tableee.delegate = self
-            let nib = UINib(nibName: "TableViewCell", bundle: nil)
+            let nib = UINib(nibName: "WeatherIndicatorsTableViewCell", bundle: nil)
             tableee.register(nib, forCellReuseIdentifier: "tablecell")
             tableee.layer.masksToBounds = true
-            tableee.layer.cornerRadius = 25
+            tableee.layer.cornerRadius = 20
         }
     }
-    @IBOutlet weak var hourlyForecastCollectionView: UICollectionView!
-    {
-        didSet
-        {
+    @IBOutlet weak var hourlyForecastCollectionView: UICollectionView!{
+        didSet{
             hourlyForecastCollectionView.dataSource = self
             hourlyForecastCollectionView.delegate = self
-            let nib1 = UINib(nibName: "CollectionViewCell", bundle: nil)
+            let nib1 = UINib(nibName: "HourlyForecastCollectionViewCell", bundle: nil)
             hourlyForecastCollectionView.register(nib1, forCellWithReuseIdentifier: "collectioncell")
             hourlyForecastCollectionView.layer.masksToBounds = true
-            hourlyForecastCollectionView.layer.cornerRadius = 25
+            hourlyForecastCollectionView.layer.cornerRadius = 20
         }
     }
     
@@ -65,54 +56,48 @@ class HomeViewController: UIViewController{
     }
 }
 
-extension HomeViewController : UITableViewDelegate
-{
+extension HomeViewController : UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "10-DAY FORECAST"
+    }
 }
 
-extension HomeViewController : UITableViewDataSource
-{
+extension HomeViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == tableee
-        {
-            let cell  = tableView.dequeueReusableCell(withIdentifier: "tablecell") as! TableViewCell
+        if tableView == tableee{
+            let cell  = tableView.dequeueReusableCell(withIdentifier: "tablecell") as! WeatherIndicatorsTableViewCell
             return cell
         }
-        
-        else
-        {
+        else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "dailyForecastCell", for: indexPath) as! DailyForecastTableViewCell
             return cell
         }
     }
 }
-extension HomeViewController: UICollectionViewDelegate
-{
+extension HomeViewController: UICollectionViewDelegate{
     
 }
-extension HomeViewController : UICollectionViewDataSource
-{
+extension HomeViewController : UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectioncell", for: indexPath) as! CollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectioncell", for: indexPath) as! HourlyForecastCollectionViewCell
         //cell.imgcollection.image = UIImage(named: "Cloud_sun")
         return cell
     }
 }
 
 extension HomeViewController : UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-    {
-        return CGSize(width: self.view.frame.width * 0.36 , height: self.view.frame.height * 0.18)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
+        return CGSize(width: self.view.frame.width * 0.20 , height: self.view.frame.height * 0.18)
     }
 }
 

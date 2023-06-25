@@ -9,6 +9,27 @@ import UIKit
 
 class DailyForecastTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var dayLabel: UILabel!
+    {
+        didSet{
+            dayLabel.applyStyle(.fourth)
+            dayLabel.text = "Saturday"
+        }
+    }
+    @IBOutlet weak var maxTempLabel: UILabel!  {
+        didSet{
+            maxTempLabel.applyStyle(.fourth)
+            maxTempLabel.text = "26°"
+        }
+    }
+    @IBOutlet weak var minTempLabel: UILabel!  {
+        didSet{
+            minTempLabel.applyStyle(.fourth)
+            minTempLabel.text = "21°"
+        }
+    }
+    
+    @IBOutlet weak var weatherIcon: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -59,29 +59,29 @@
                                 </stackView>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aKU-IM-rWq">
                                     <rect key="frame" x="16" y="1030" width="361" height="230"/>
-                                    <color key="backgroundColor" systemColor="labelColor"/>
+                                    <color key="backgroundColor" name="Background"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="230" id="OWo-Rh-qeH"/>
                                     </constraints>
                                     <color key="separatorColor" systemColor="labelColor"/>
                                 </tableView>
                                 <stackView opaque="NO" contentMode="center" alignment="top" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="zbh-n4-Gbb">
-                                    <rect key="frame" x="53.333333333333343" y="205" width="286.66666666666663" height="100"/>
+                                    <rect key="frame" x="53.333333333333343" y="205" width="286.66666666666663" height="90"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CiT-D9-LgJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cloud_sun" translatesAutoresizingMaskIntoConstraints="NO" id="CiT-D9-LgJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="t52-0M-thN">
-                                            <rect key="frame" x="140" y="0.0" width="146.66666666666663" height="74"/>
+                                            <rect key="frame" x="130" y="0.0" width="156.66666666666663" height="74"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="35°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqY-GR-vSR">
-                                                    <rect key="frame" x="40.999999999999993" y="0.0" width="64.333333333333314" height="48"/>
+                                                    <rect key="frame" x="45.999999999999993" y="0.0" width="64.333333333333314" height="48"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feels like 38°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="db4-NQ-gzK">
-                                                    <rect key="frame" x="14.333333333333321" y="50" width="117.66666666666669" height="24"/>
+                                                    <rect key="frame" x="19.333333333333321" y="50" width="117.66666666666669" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -91,7 +91,7 @@
                                     </subviews>
                                 </stackView>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6FM-gf-z6j">
-                                    <rect key="frame" x="16" y="330" width="361" height="170"/>
+                                    <rect key="frame" x="16" y="320" width="361" height="170"/>
                                     <color key="backgroundColor" name="Background"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="170" id="CaP-fE-ZL2"/>
@@ -104,7 +104,7 @@
                                     </collectionViewFlowLayout>
                                 </collectionView>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oh9-Pc-GTF">
-                                    <rect key="frame" x="16" y="512" width="361" height="400"/>
+                                    <rect key="frame" x="16" y="516" width="361" height="400"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" name="Background"/>
                                 </tableView>
@@ -153,6 +153,7 @@
         </view>
     </objects>
     <resources>
+        <image name="Cloud_sun" width="90" height="90"/>
         <namedColor name="Background">
             <color red="0.47200000286102295" green="0.59600001573562622" blue="0.77799999713897705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
-             let viewController = UIViewController()
+            // let viewController = UIViewController()
             // viewController.view.backgroundColor = .systemTeal
 
              let window = UIWindow(windowScene: windowScene)
@@ -26,13 +26,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     func createHomeNC() -> UINavigationController{
         let homeVC = HomeViewController()
-        homeVC.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 0)
+        homeVC.tabBarItem = UITabBarItem(title: "", image: UIImage(systemName: "circle.grid.2x1.fill"), tag: 0)
         return UINavigationController(rootViewController: homeVC)
     }
     func createTabBar() -> UITabBarController{
         let tabBar = UITabBarController()
-        UITabBar.appearance().tintColor = .cyan
-        UITabBar.appearance().backgroundColor = .red
+        let tabBarApperance = UITabBarAppearance()
+        UITabBar.appearance().tintColor = .white
+        UITabBar.appearance().backgroundColor = .clear
+        UITabBar.appearance().scrollEdgeAppearance = tabBarApperance
+        tabBarApperance.backgroundColor = UIColor(named: "blueeee")
+        UITabBar.appearance().standardAppearance = tabBarApperance
         tabBar.viewControllers = [createHomeNC()]
         return tabBar
     }

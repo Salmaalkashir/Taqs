@@ -169,7 +169,7 @@
         </view>
     </objects>
     <resources>
-        <image name="cloud.sun" catalog="system" width="128" height="97"/>
+        <image name="cloud.sun" catalog="system" width="32" height="32"/>
         <namedColor name="Background">
             <color red="0.47200000286102295" green="0.59600001573562622" blue="0.77799999713897705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

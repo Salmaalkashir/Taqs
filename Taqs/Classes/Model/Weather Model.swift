@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import UIKit
 
 struct Forecast: Decodable
 {
     let lat: Double?
     let lon: Double?
     let timezone: String?
-    let timezoneOffset: Int?
+    let timezone_offset: Int?
     let current: CurrentForecast?
     let hourly: [HourlyForecast]?
     let daily: [DailyForecast]?
@@ -20,19 +21,19 @@ struct Forecast: Decodable
 
 struct CurrentForecast: Decodable
 {
-    let dt: Int?
+    let dt: Double?
     let sunrise: Int?
     let sunset:Int?
     let temp: Double?
-    let feelsLike: Double?
+    let feels_like: Double?
     let pressure: Int?
     let humidity: Int?
     //let dew_point: Double?
     let uvi: Double?
     let clouds: Int?
     let visibility: Int?
-    let windSpeed: Double?
-    let windDeg: Int?
+    let wind_speed: Double?
+    let wind_deg: Int?
     let weather: [Weather]?
     
 }
@@ -41,7 +42,7 @@ struct Weather: Decodable
 {
     let id: Int?
     let main: Main?
-    let description: Description?
+    let description: String?//Description?
     let icon: String?
 }
 
@@ -64,15 +65,15 @@ enum Description: String, Codable {
 struct HourlyForecast: Decodable
 {
     let dt: Int?
-    let temp: Int?
-    let feelsLike: Double?
+    let temp: Double?
+    let feels_like: Double?
     let pressure: Int?
     let humidity: Int?
     let uvi: Double?
     let clouds: Int?
     let visibility: Int?
-    let windSpeed: Double?
-    let windDeg: Int?
+    let wind_speed: Double?
+    let wind_deg: Int?
    // let wind_gust: Double?
     let weather: [Weather]?
 }
@@ -84,13 +85,13 @@ struct DailyForecast: Decodable
     let sunset: Int?
     let moonrise: Int?
     let moonset: Int?
-    let moonPhase: Double?
+    let moon_phase: Double?
     let temp: Temprature?
-    let feelsLike: FeelsLike?
+    let feels_like: FeelsLike?
     let pressure: Int?
     let humidity: Int?
-    let windSpeed: Double?
-    let windDeg: Int?
+    let wind_speed: Double?
+    let wind_deg: Int?
     let weather: [Weather]?
     let clouds: Int?
     let rain: Double?
@@ -113,4 +114,48 @@ struct FeelsLike: Decodable
     let night: Double?
     let eve: Double?
     let morn: Double?
+}
+
+
+enum Indicators{
+    case uvIndix
+    case sunrise
+    case sunset
+    case wind
+    case humidity
+    case clouds
+    
+    var indicator : String{
+        switch self{
+        case .uvIndix:
+            return "UV index"
+        case .sunrise:
+            return "Sunrise"
+        case .sunset:
+            return "Sunset"
+        case .wind:
+            return "Wind"
+        case .humidity:
+            return "Humidity"
+        case .clouds:
+            return "Clouds"
+        }
+    }
+    
+    var icon : UIImage{
+        switch self{
+        case .uvIndix:
+            return UIImage(named: "uvIndex")!
+        case .sunrise:
+            return UIImage(named: "sunrise")!
+        case .sunset:
+            return UIImage(named: "sunset")!
+        case .wind:
+            return UIImage(named: "wind")!
+        case .humidity:
+            return UIImage(named: "humidity")!
+        case .clouds:
+            return UIImage(named: "clouds")!
+        }
+    }
 }

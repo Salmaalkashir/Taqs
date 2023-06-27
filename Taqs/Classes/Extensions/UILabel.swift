@@ -46,7 +46,7 @@ extension UILabel {
 
 // MARK: - Fonts
 private enum LabelFont {
-    static let headerLabel = UIFont.systemFont(ofSize: 50, weight: .bold)
+    static let headerLabel = UIFont.systemFont(ofSize: 40, weight: .bold)
     static let title = UIFont.systemFont(ofSize: 30, weight: .semibold)
     static let subtitle = UIFont.systemFont(ofSize: 18, weight: .regular)
     static let fourth = UIFont.systemFont(ofSize: 20, weight: .medium)

@@ -9,7 +9,7 @@ import Foundation
 
 final class NetworkManager
 {
-    func fetchData(lat: Double, lon: Double, completionHandler: @escaping(Forecast?)-> Void)
+    static func fetchData(lat: Double, lon: Double, completionHandler: @escaping(Forecast?)-> Void)
     {
         let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&appid=621a8559fe740d63c82df06faaea9c3c")
         guard let newUrl = url else{
@@ -28,9 +28,11 @@ final class NetworkManager
                 completionHandler(result)
             }catch let error {
                 print(error.localizedDescription)
+                print(String(describing: error))
                 completionHandler(nil)
             }
         }
         task.resume()
+        print("fitched")
     }
 }

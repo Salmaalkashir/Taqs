@@ -9,16 +9,15 @@ import UIKit
 
 class HomeViewController: UIViewController{
     
+    var city : [String]?
+    var viewModel : ViewModel?
+    var forecast : Forecast?
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tempDescriptionLabel: UILabel!
     @IBOutlet weak var tempDegreeLabel: UILabel!
     @IBOutlet weak var feelsLikeLabel: UILabel!
-    @IBOutlet weak var img: UIImageView!{
-        didSet{
-            //img.image = UIImage(named: "Cloud_sun")
-        }
-    }
+    @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var dailyForecastTableView: UITableView!{
         didSet{
             dailyForecastTableView.dataSource = self
@@ -29,14 +28,14 @@ class HomeViewController: UIViewController{
             dailyForecastTableView.layer.cornerRadius = 20
         }
     }
-    @IBOutlet weak var tableee: UITableView!{
+    @IBOutlet weak var weatherIndicatorsTableView: UITableView!{
         didSet{
-            tableee.dataSource = self
-            tableee.delegate = self
+            weatherIndicatorsTableView.dataSource = self
+            weatherIndicatorsTableView.delegate = self
             let nib = UINib(nibName: "WeatherIndicatorsTableViewCell", bundle: nil)
-            tableee.register(nib, forCellReuseIdentifier: "tablecell")
-            tableee.layer.masksToBounds = true
-            tableee.layer.cornerRadius = 20
+            weatherIndicatorsTableView.register(nib, forCellReuseIdentifier: "tablecell")
+            weatherIndicatorsTableView.layer.masksToBounds = true
+            weatherIndicatorsTableView.layer.cornerRadius = 20
         }
     }
     @IBOutlet weak var hourlyForecastCollectionView: UICollectionView!{
@@ -53,6 +52,24 @@ class HomeViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         configureAppearance()
+        viewModel = ViewModel()
+        viewModel?.getForecast(lattitude: 33.44, logitude: -94.04)
+        viewModel?.bindingResultToHomeViewController =
+        {
+            DispatchQueue.main.async {
+                self.forecast = self.viewModel?.forecastResult
+                self.tempDegreeLabel.text = String(self.forecast?.current?.temp ?? 0.0).appending("°")
+                self.tempDescriptionLabel.text = self.forecast?.current?.weather?[0].description
+                self.feelsLikeLabel.text = "Feels Like: ".appending(String(self.forecast?.current?.feels_like ?? 0.0)).appending("°")
+                self.cityLabel.text = self.forecast?.timezone
+                print(self.forecast?.current?.humidity)
+               // self.dateLabel.text = String(Date(timeIntervalSince1970: forecast?.current?.dt ?? 0.0)) ?? ""
+                //self.city = self.forecast?.timezone?.split(separator: "/") as? [String]
+                //self.cityLabel.text = self.city?[1]
+                print("Salom\(self.forecast?.timezone)")
+                self.weatherIndicatorsTableView.reloadData()
+            }
+        }
     }
 }
 
@@ -61,22 +78,34 @@ extension HomeViewController : UITableViewDelegate{
         return 60
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "10-DAY FORECAST"
+        if tableView == dailyForecastTableView{
+            return "10-DAY FORECAST"
+        }
+        else{
+            return ""
+        }
     }
 }
 
 extension HomeViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        if tableView == dailyForecastTableView{
+            return 10
+        }
+        else{
+           return 6
+        }
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == tableee{
-            let cell  = tableView.dequeueReusableCell(withIdentifier: "tablecell") as! WeatherIndicatorsTableViewCell
+        if tableView == dailyForecastTableView{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "dailyForecastCell", for: indexPath) as! DailyForecastTableViewCell
             return cell
         }
         else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "dailyForecastCell", for: indexPath) as! DailyForecastTableViewCell
+            let cell  = tableView.dequeueReusableCell(withIdentifier: "tablecell") as! WeatherIndicatorsTableViewCell
+            cell.createCell(rowIndex: indexPath.row)
+            cell.indicatorValueLabel.text = String(forecast?.current?.humidity ?? 0)
+            print(forecast?.current?.humidity)
             return cell
         }
     }

@@ -19,19 +19,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kq2-sK-dof">
-                        <rect key="frame" x="65" y="19" width="42" height="21"/>
+                        <rect key="frame" x="65" y="19" width="103" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sun.haze.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jV9-Hy-Bx4">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jV9-Hy-Bx4">
                         <rect key="frame" x="22" y="15.333333333333332" width="28" height="28"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="tintColor" systemColor="systemYellowColor"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKn-M8-iN8">
-                        <rect key="frame" x="290" y="18" width="42" height="21"/>
+                        <rect key="frame" x="267" y="18" width="94" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -41,11 +41,15 @@
                 <color key="backgroundColor" name="Background"/>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="indicatorIcon" destination="jV9-Hy-Bx4" id="oPg-rm-ueA"/>
+                <outlet property="indicatorLabel" destination="kq2-sK-dof" id="dLd-OP-rd9"/>
+                <outlet property="indicatorValueLabel" destination="eKn-M8-iN8" id="PsV-Dp-ISH"/>
+            </connections>
             <point key="canvasLocation" x="109.9236641221374" y="-11.267605633802818"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="sun.haze.fill" catalog="system" width="128" height="118"/>
         <namedColor name="Background">
             <color red="0.47200000286102295" green="0.59600001573562622" blue="0.77799999713897705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

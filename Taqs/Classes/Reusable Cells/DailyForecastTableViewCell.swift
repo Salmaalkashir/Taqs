@@ -9,8 +9,7 @@ import UIKit
 
 class DailyForecastTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var dayLabel: UILabel!
-    {
+    @IBOutlet weak var dayLabel: UILabel!{
         didSet{
             dayLabel.applyStyle(.fourth)
             dayLabel.text = "Saturday"

@@ -29,6 +29,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         homeVC.tabBarItem = UITabBarItem(title: "", image: UIImage(systemName: "circle.grid.2x1.fill"), tag: 0)
         return UINavigationController(rootViewController: homeVC)
     }
+    func createFavouriteNC() -> UINavigationController{
+        let favouriteVC = FavouriteViewController()
+        favouriteVC.tabBarItem = UITabBarItem(title: "", image: UIImage(systemName: "star"), tag: 0)
+        return UINavigationController(rootViewController: favouriteVC)
+    }
     func createTabBar() -> UITabBarController{
         let tabBar = UITabBarController()
         let tabBarApperance = UITabBarAppearance()
@@ -37,7 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UITabBar.appearance().scrollEdgeAppearance = tabBarApperance
         tabBarApperance.backgroundColor = UIColor(named: "blueeee")
         UITabBar.appearance().standardAppearance = tabBarApperance
-        tabBar.viewControllers = [createHomeNC()]
+        tabBar.viewControllers = [createHomeNC(),createFavouriteNC()]
         return tabBar
     }
     func sceneDidDisconnect(_ scene: UIScene) {

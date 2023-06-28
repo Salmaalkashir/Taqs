@@ -21,7 +21,11 @@
 		38F3448D2A3A1FA100DDEF7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F3448C2A3A1FA100DDEF7A /* SceneDelegate.swift */; };
 		38F344942A3A1FA500DDEF7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F344932A3A1FA500DDEF7A /* Assets.xcassets */; };
 		38F344972A3A1FA500DDEF7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38F344952A3A1FA500DDEF7A /* LaunchScreen.storyboard */; };
+		4FEDEC1E2A4BFF5E003E5F32 /* FavouriteLocationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDEC1C2A4BFF5E003E5F32 /* FavouriteLocationsTableViewCell.swift */; };
+		4FEDEC1F2A4BFF5E003E5F32 /* FavouriteLocationsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FEDEC1D2A4BFF5E003E5F32 /* FavouriteLocationsTableViewCell.xib */; };
 		4FF221A72A4A38710031E6D7 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF221A62A4A38710031E6D7 /* ViewModel.swift */; };
+		4FF32CBE2A4BF2B0006969CB /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF32CBC2A4BF2B0006969CB /* FavouriteViewController.swift */; };
+		4FF32CBF2A4BF2B0006969CB /* FavouriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF32CBD2A4BF2B0006969CB /* FavouriteViewController.xib */; };
 		4FFDF0472A47637C00AF5EE3 /* DailyForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFDF0452A47637C00AF5EE3 /* DailyForecastTableViewCell.swift */; };
 		4FFDF0482A47637C00AF5EE3 /* DailyForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FFDF0462A47637C00AF5EE3 /* DailyForecastTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -43,7 +47,11 @@
 		38F344932A3A1FA500DDEF7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38F344962A3A1FA500DDEF7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38F344982A3A1FA500DDEF7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FEDEC1C2A4BFF5E003E5F32 /* FavouriteLocationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteLocationsTableViewCell.swift; sourceTree = "<group>"; };
+		4FEDEC1D2A4BFF5E003E5F32 /* FavouriteLocationsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteLocationsTableViewCell.xib; sourceTree = "<group>"; };
 		4FF221A62A4A38710031E6D7 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		4FF32CBC2A4BF2B0006969CB /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
+		4FF32CBD2A4BF2B0006969CB /* FavouriteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteViewController.xib; sourceTree = "<group>"; };
 		4FFDF0452A47637C00AF5EE3 /* DailyForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastTableViewCell.swift; sourceTree = "<group>"; };
 		4FFDF0462A47637C00AF5EE3 /* DailyForecastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyForecastTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,6 +76,8 @@
 				3879E6D52A44A2130040998D /* WeatherIndicatorsTableViewCell.xib */,
 				3879E6D82A44B56E0040998D /* HourlyForecastCollectionViewCell.swift */,
 				3879E6D92A44B56E0040998D /* HourlyForecastCollectionViewCell.xib */,
+				4FEDEC1C2A4BFF5E003E5F32 /* FavouriteLocationsTableViewCell.swift */,
+				4FEDEC1D2A4BFF5E003E5F32 /* FavouriteLocationsTableViewCell.xib */,
 			);
 			path = "Reusable Cells";
 			sourceTree = "<group>";
@@ -102,6 +112,8 @@
 				38F3448C2A3A1FA100DDEF7A /* SceneDelegate.swift */,
 				387E81E92A3E6F8700BB4941 /* HomeViewController.swift */,
 				387E81EA2A3E6F8700BB4941 /* HomeViewController.xib */,
+				4FF32CBC2A4BF2B0006969CB /* FavouriteViewController.swift */,
+				4FF32CBD2A4BF2B0006969CB /* FavouriteViewController.xib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -214,9 +226,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FEDEC1F2A4BFF5E003E5F32 /* FavouriteLocationsTableViewCell.xib in Resources */,
 				38F344972A3A1FA500DDEF7A /* LaunchScreen.storyboard in Resources */,
 				3879E6D72A44A2130040998D /* WeatherIndicatorsTableViewCell.xib in Resources */,
 				38F344942A3A1FA500DDEF7A /* Assets.xcassets in Resources */,
+				4FF32CBF2A4BF2B0006969CB /* FavouriteViewController.xib in Resources */,
 				387E81EC2A3E6F8700BB4941 /* HomeViewController.xib in Resources */,
 				4FFDF0482A47637C00AF5EE3 /* DailyForecastTableViewCell.xib in Resources */,
 				3879E6DB2A44B56E0040998D /* HourlyForecastCollectionViewCell.xib in Resources */,
@@ -234,12 +248,14 @@
 				388FDB352A47A4770079F7B8 /* Weather Model.swift in Sources */,
 				387E81EB2A3E6F8700BB4941 /* HomeViewController.swift in Sources */,
 				4FF221A72A4A38710031E6D7 /* ViewModel.swift in Sources */,
+				4FF32CBE2A4BF2B0006969CB /* FavouriteViewController.swift in Sources */,
 				38F3448B2A3A1FA100DDEF7A /* AppDelegate.swift in Sources */,
 				388D53DC2A47BC170087618A /* Network Services .swift in Sources */,
 				38F3448D2A3A1FA100DDEF7A /* SceneDelegate.swift in Sources */,
 				3879E6DA2A44B56E0040998D /* HourlyForecastCollectionViewCell.swift in Sources */,
 				3879E6D62A44A2130040998D /* WeatherIndicatorsTableViewCell.swift in Sources */,
 				387E81E22A3E459F00BB4941 /* UILabel.swift in Sources */,
+				4FEDEC1E2A4BFF5E003E5F32 /* FavouriteLocationsTableViewCell.swift in Sources */,
 				387E81E02A3E449E00BB4941 /* UIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

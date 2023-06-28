@@ -12,6 +12,9 @@ class HomeViewController: UIViewController{
     var city : [String]?
     var viewModel : ViewModel?
     var forecast : Forecast?
+    var date : Date?
+    let dateFormatter : DateFormatter = DateFormatter()
+    var arr : [String]?
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tempDescriptionLabel: UILabel!
@@ -52,20 +55,24 @@ class HomeViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         configureAppearance()
+        dateFormatter.dateStyle = .full
         viewModel = ViewModel()
         viewModel?.getForecast(lattitude: 33.44, logitude: -94.04)
         viewModel?.bindingResultToHomeViewController =
         {
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [self] in
                 self.forecast = self.viewModel?.forecastResult
                 self.tempDegreeLabel.text = String(self.forecast?.current?.temp ?? 0.0).appending("°")
                 self.tempDescriptionLabel.text = self.forecast?.current?.weather?[0].description
                 self.feelsLikeLabel.text = "Feels Like: ".appending(String(self.forecast?.current?.feels_like ?? 0.0)).appending("°")
                 self.cityLabel.text = self.forecast?.timezone
                 print(self.forecast?.current?.humidity)
-               // self.dateLabel.text = String(Date(timeIntervalSince1970: forecast?.current?.dt ?? 0.0)) ?? ""
-                //self.city = self.forecast?.timezone?.split(separator: "/") as? [String]
-                //self.cityLabel.text = self.city?[1]
+                self.date = Date(timeIntervalSince1970: self.forecast?.current?.dt ?? 0.0)
+                self.dateLabel.text =  dateFormatter.string(from: (self.date ?? Date()))
+                print(self.date)
+                self.arr = forecast?.timezone?.components(separatedBy: "/")
+                print(arr?[0])
+                self.cityLabel.text = self.arr?[0]
                 print("Salom\(self.forecast?.timezone)")
                 self.weatherIndicatorsTableView.reloadData()
             }

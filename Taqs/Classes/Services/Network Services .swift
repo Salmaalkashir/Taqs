@@ -33,6 +33,5 @@ final class NetworkManager
             }
         }
         task.resume()
-        print("fitched")
     }
 }

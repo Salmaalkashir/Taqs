@@ -13,7 +13,11 @@ class HomeViewController: UIViewController{
     var viewModel : ViewModel?
     var forecast : Forecast?
     var date : Date?
+    var hours : Date?
+    var days : Date?
+    var day : [String]?
     let dateFormatter : DateFormatter = DateFormatter()
+    let hoursFormatter : DateFormatter = DateFormatter()
     var arr : [String]?
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -56,6 +60,7 @@ class HomeViewController: UIViewController{
         super.viewDidLoad()
         configureAppearance()
         dateFormatter.dateStyle = .full
+        hoursFormatter.dateFormat = "HH:mm"
         viewModel = ViewModel()
         viewModel?.getForecast(lattitude: 33.44, logitude: -94.04)
         viewModel?.bindingResultToHomeViewController =
@@ -66,15 +71,14 @@ class HomeViewController: UIViewController{
                 self.tempDescriptionLabel.text = self.forecast?.current?.weather?[0].description
                 self.feelsLikeLabel.text = "Feels Like: ".appending(String(self.forecast?.current?.feels_like ?? 0.0)).appending("°")
                 self.cityLabel.text = self.forecast?.timezone
-                print(self.forecast?.current?.humidity)
                 self.date = Date(timeIntervalSince1970: self.forecast?.current?.dt ?? 0.0)
                 self.dateLabel.text =  dateFormatter.string(from: (self.date ?? Date()))
-                print(self.date)
                 self.arr = forecast?.timezone?.components(separatedBy: "/")
-                print(arr?[0])
                 self.cityLabel.text = self.arr?[0]
-                print("Salom\(self.forecast?.timezone)")
+            
                 self.weatherIndicatorsTableView.reloadData()
+                self.dailyForecastTableView.reloadData()
+                self.hourlyForecastCollectionView.reloadData()
             }
         }
     }
@@ -97,7 +101,7 @@ extension HomeViewController : UITableViewDelegate{
 extension HomeViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == dailyForecastTableView{
-            return 10
+            return forecast?.daily?.count ?? 0
         }
         else{
            return 6
@@ -106,13 +110,17 @@ extension HomeViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == dailyForecastTableView{
             let cell = tableView.dequeueReusableCell(withIdentifier: "dailyForecastCell", for: indexPath) as! DailyForecastTableViewCell
+            self.days = Date(timeIntervalSince1970: Double(self.forecast?.daily?[indexPath.row].dt ?? 0) ?? 0.0)
+            self.day = dateFormatter.string(from: (self.days ?? Date())).components(separatedBy: ",")
+            cell.dayLabel.text = day?[0]
+            cell.minTempLabel.text = String(forecast?.daily?[indexPath.row].temp?.min ?? 0.0)
+            cell.maxTempLabel.text = String(forecast?.daily?[indexPath.row].temp?.max ?? 0.0)
             return cell
         }
         else{
             let cell  = tableView.dequeueReusableCell(withIdentifier: "tablecell") as! WeatherIndicatorsTableViewCell
             cell.createCell(rowIndex: indexPath.row)
             cell.indicatorValueLabel.text = String(forecast?.current?.humidity ?? 0)
-            print(forecast?.current?.humidity)
             return cell
         }
     }
@@ -122,11 +130,13 @@ extension HomeViewController: UICollectionViewDelegate{
 }
 extension HomeViewController : UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return forecast?.hourly?.count ?? 0
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectioncell", for: indexPath) as! HourlyForecastCollectionViewCell
-        //cell.imgcollection.image = UIImage(named: "Cloud_sun")
+        self.hours = Date(timeIntervalSince1970: Double(self.forecast?.hourly?[indexPath.row].dt ?? 0) ?? 0.0)
+        cell.timeLabel.text =  hoursFormatter.string(from: (self.hours ?? Date()))
+        cell.tempDegreeLabel.text = String(forecast?.hourly?[indexPath.row].temp ?? 0.0) ?? ""
         return cell
     }
 }

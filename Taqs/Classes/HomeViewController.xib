@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -25,11 +26,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
+            <rect key="frame" x="0.0" y="0.0" width="393" height="1300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wv3-fm-XDE">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="1220"/>
                     <subviews>
                         <view contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Us3-FB-DDH" userLabel="Content View">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
@@ -119,7 +120,6 @@
                                     <color key="separatorColor" systemColor="labelColor"/>
                                 </tableView>
                             </subviews>
-                            <color key="backgroundColor" red="0.61960784310000006" green="0.70196078429999997" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="6FM-gf-z6j" firstAttribute="centerX" secondItem="Us3-FB-DDH" secondAttribute="centerX" id="37j-vV-Hc6"/>
                                 <constraint firstItem="zbh-n4-Gbb" firstAttribute="width" secondItem="Us3-FB-DDH" secondAttribute="width" multiplier="0.729432" id="87f-dW-Rg9"/>
@@ -143,22 +143,20 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" name="blueeee"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="Us3-FB-DDH" secondAttribute="bottom" id="CvW-tv-WXi"/>
+                        <constraint firstAttribute="bottom" secondItem="Us3-FB-DDH" secondAttribute="bottom" constant="20" id="CvW-tv-WXi"/>
                         <constraint firstItem="Us3-FB-DDH" firstAttribute="leading" secondItem="wv3-fm-XDE" secondAttribute="leading" id="DTn-zq-cLG"/>
                         <constraint firstAttribute="trailing" secondItem="Us3-FB-DDH" secondAttribute="trailing" id="Qhv-SO-2J9"/>
                         <constraint firstItem="Us3-FB-DDH" firstAttribute="width" secondItem="wv3-fm-XDE" secondAttribute="width" id="SMH-I1-eUS"/>
-                        <constraint firstItem="Us3-FB-DDH" firstAttribute="height" secondItem="wv3-fm-XDE" secondAttribute="height" priority="250" id="VPB-un-UMC"/>
+                        <constraint firstItem="Us3-FB-DDH" firstAttribute="height" secondItem="wv3-fm-XDE" secondAttribute="height" priority="250" constant="-20" id="VPB-un-UMC"/>
                         <constraint firstItem="Us3-FB-DDH" firstAttribute="top" secondItem="wv3-fm-XDE" secondAttribute="top" id="gxO-o3-bME"/>
                     </constraints>
                     <viewLayoutGuide key="contentLayoutGuide" id="bME-l8-oao"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="9Dh-Zh-TNd"/>
                 </scrollView>
             </subviews>
-            <color key="backgroundColor" name="blueeee"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="wv3-fm-XDE" secondAttribute="bottom" id="2b4-Eo-Hae"/>
+                <constraint firstAttribute="bottom" secondItem="wv3-fm-XDE" secondAttribute="bottom" constant="80" id="2b4-Eo-Hae"/>
                 <constraint firstAttribute="trailing" secondItem="wv3-fm-XDE" secondAttribute="trailing" id="DzP-EK-zRz"/>
                 <constraint firstItem="wv3-fm-XDE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Qg3-fQ-OPd"/>
                 <constraint firstItem="wv3-fm-XDE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hGw-3o-svg"/>
@@ -171,9 +169,6 @@
         <image name="cloud.sun" catalog="system" width="128" height="97"/>
         <namedColor name="Background">
             <color red="0.47200000286102295" green="0.59600001573562622" blue="0.77799999713897705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="blueeee">
-            <color red="0.62000000476837158" green="0.70200002193450928" blue="0.76099997758865356" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

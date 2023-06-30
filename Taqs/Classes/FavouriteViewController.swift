@@ -21,7 +21,7 @@ class FavouriteViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         locationsLabel.applyStyle(.header)
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "a") ?? UIImage())
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bbb") ?? UIImage())
     }
 
 }

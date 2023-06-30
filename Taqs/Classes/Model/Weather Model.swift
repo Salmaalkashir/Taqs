@@ -50,6 +50,7 @@ enum Main: String, Codable {
     case clear = "Clear"
     case clouds = "Clouds"
     case rain = "Rain"
+    case snow = "Snow"
 }
 
 enum Description: String, Codable {

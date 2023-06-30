@@ -11,7 +11,7 @@ final class NetworkManager
 {
     static func fetchData(lat: Double, lon: Double, completionHandler: @escaping(Forecast?)-> Void)
     {
-        let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&appid=621a8559fe740d63c82df06faaea9c3c")
+        let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&appid=621a8559fe740d63c82df06faaea9c3c&units=metric")
         guard let newUrl = url else{
             return completionHandler(nil)
         }

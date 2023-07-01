@@ -36,9 +36,10 @@ class CustomTabBarController : UITabBarController , UITabBarControllerDelegate
     
     func setupViewController()
     {
-        let first = templateNavController(rootViewController: HomeViewController(), image: UIImage(systemName: "circle.grid.2x1.fill") ?? UIImage())
-        let second = templateNavController(rootViewController: FavouriteViewController(), image: UIImage(systemName: "star") ?? UIImage())
-        viewControllers = [first,second]
+        let first = templateNavController(rootViewController: MapsViewController(), image: UIImage(systemName: "map.fill") ?? UIImage())
+        let second = templateNavController(rootViewController: HomeViewController(), image: UIImage(systemName: "circle.grid.2x1.fill") ?? UIImage())
+        let third = templateNavController(rootViewController: FavouriteViewController(), image: UIImage(systemName: "star") ?? UIImage())
+        viewControllers = [first,second,third]
         tabBar.backgroundImage = getColoredImage(color: .clear, size: CGSize(width: view.frame.width, height: 100))
     }
     

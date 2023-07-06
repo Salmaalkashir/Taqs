@@ -24,7 +24,7 @@ class HomeViewController: UIViewController{
     @IBOutlet weak var tempDescriptionLabel: UILabel!
     @IBOutlet weak var tempDegreeLabel: UILabel!
     @IBOutlet weak var feelsLikeLabel: UILabel!
-    @IBOutlet weak var img: UIImageView!
+    @IBOutlet weak var CurrentIcon: UIImageView!
     @IBOutlet weak var dailyForecastTableView: UITableView!{
         didSet{
             dailyForecastTableView.dataSource = self
@@ -59,11 +59,12 @@ class HomeViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         configureAppearance()
+        CurrentIcon.image = UIImage(named: "sun")
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bbb") ?? UIImage())
         dateFormatter.dateStyle = .full
         hoursFormatter.dateFormat = "HH:mm"
         viewModel = ViewModel()
-        viewModel?.getForecast(lattitude: 33.44, logitude: -94.04)
+        viewModel?.getForecast(lattitude: 26.8206, logitude: 30.8025)
         viewModel?.bindingResultToHomeViewController =
         {
             DispatchQueue.main.async { [self] in
@@ -75,7 +76,7 @@ class HomeViewController: UIViewController{
                 self.date = Date(timeIntervalSince1970: self.forecast?.current?.dt ?? 0.0)
                 self.dateLabel.text =  dateFormatter.string(from: (self.date ?? Date()))
                 self.arr = forecast?.timezone?.components(separatedBy: "/")
-                self.cityLabel.text = self.arr?[0]
+                self.cityLabel.text = self.arr?[1]
             
                 self.weatherIndicatorsTableView.reloadData()
                 self.dailyForecastTableView.reloadData()

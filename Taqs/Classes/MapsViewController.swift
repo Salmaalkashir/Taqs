@@ -14,26 +14,28 @@ class MapsViewController: UIViewController ,  MKMapViewDelegate {
     @IBOutlet weak var Map: MKMapView!
     var forecast: Forecast?
     var viewmodel: ViewModel?
-    var customAnnotationView: CustomAnnotationView?
+    var temp: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let location = CLLocation(latitude: 33.44, longitude: -94.04)
-        SetLocation(location: location, distance: 10000)
-        AddAnnotation()
         Map.delegate = self
         viewmodel = ViewModel()
-        customAnnotationView = CustomAnnotationView()
-        viewmodel?.getForecast(lattitude: 33.44, logitude: -94.04)
+        
+        let location = CLLocation(latitude: 31.2001, longitude: 29.9187)
+        SetLocation(location: location, distance: 1000000)
+       
+        viewmodel?.getForecast(lattitude: 31.2001, logitude: 29.9187)
         viewmodel?.bindingResultToHomeViewController =
         {
             DispatchQueue.main.async{ [self] in
                 self.forecast = self.viewmodel?.forecastResult
-                self.customAnnotationView?.label.text = String(Int(round(self.forecast?.current?.temp ?? 0.0))).appending("°")
+                self.temp = (String(Int(round(self.forecast?.current?.temp ?? 0.0))).appending("°"))
+                self.AddAnnotation()
             }
         }
     }
+    
     
     func SetLocation(location:CLLocation, distance: CLLocationDistance)
     {
@@ -41,14 +43,15 @@ class MapsViewController: UIViewController ,  MKMapViewDelegate {
         Map.setRegion(region, animated: true)
     }
     
+    
     func AddAnnotation()
     {
+        var color: String?
         let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: 33.44, longitude: -94.04)
-        annotation.title = "SS"
+        annotation.coordinate = CLLocationCoordinate2D(latitude: 31.2001, longitude: 29.9187)
+        annotation.title = temp
         Map.addAnnotation(annotation)
     }
-    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !annotation.isKind(of: MKUserLocation.self) else {
             return nil
@@ -64,13 +67,15 @@ class MapsViewController: UIViewController ,  MKMapViewDelegate {
             annotationView?.annotation = annotation
         }
         
-        if let customAnnotationView = annotationView as? CustomAnnotationView {
+       /* if let customAnnotationView = annotationView as? CustomAnnotationView {
             customAnnotationView.label.text = String(Int(round(self.forecast?.current?.temp ?? 0.0))).appending("°")
             
-        }
+        }*/
         return annotationView
     }
 }
+
+
 
 class CustomAnnotationView: MKAnnotationView {
      var label: UILabel!
@@ -78,15 +83,12 @@ class CustomAnnotationView: MKAnnotationView {
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
 
-        // Customize the appearance of the annotation view
         self.frame = CGRect(x: 0, y: 0, width: 200, height: 60)
         self.backgroundColor = .clear
 
-        // Add a label to the annotation view
         self.label = UILabel(frame: CGRect(x: 10, y: 10, width: 180, height: 40))
-        self.label.textColor = .white
+        self.label.textColor = .red
         self.label.font = UIFont.boldSystemFont(ofSize: 14)
-        self.image = UIImage(named: "whitcirlce")
         self.addSubview(label)
     }
 
